@@ -50,9 +50,8 @@ class Cart
     }
 
      // Supprimer tous les éléments du panier
-     public function remove()
-     {
-         return $this->session->set('cart', []);
-     }
-
+    public function remove()
+    {
+        return $this->session->set('cart', []);
+    }
 }
