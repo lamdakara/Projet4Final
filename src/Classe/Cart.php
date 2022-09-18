@@ -14,7 +14,7 @@ class Cart
 
     public function __construct(EntityManagerInterface $entityManager, RequestStack $stack)
     {
-        $this->stack = $stack;
+        return $this->stack = $stack;
         $this->entityManager = $entityManager;
     }
 
@@ -47,11 +47,5 @@ class Cart
         unset($cart[$id]);
 
         return $this->session->set('cart', $cart);
-    }
-
-     // Supprimer tous les éléments du panier
-    public function remove()
-    {
-        return $this->session->set('cart', []);
     }
 }
