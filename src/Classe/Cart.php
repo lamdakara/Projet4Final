@@ -49,4 +49,8 @@ class Cart
         return $this->session->set('cart', $cart);
     }
     
+    public function remove()
+    {
+        return $this->session->set('cart', []);
+    }
 }

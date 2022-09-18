@@ -41,14 +41,6 @@ class CartController extends AbstractController
         return $this->redirectToRoute('cart');
     }
 
-    // Retirer un élément du panier
-    #[Route('/cart/remove', name: 'remove_my_cart'), IsGranted('ROLE_USER')]
-    public function remove(Cart $cart)
-    {
-        $cart->remove();
-        return $this->redirectToRoute('meeting');
-    }
-
     // Supprimer un élement du panier
     #[Route('/cart/delete/{id}', name: 'delete_to_cart'), IsGranted('ROLE_USER')]
     public function delete(Cart $cart, $id)
@@ -57,11 +49,4 @@ class CartController extends AbstractController
         return $this->redirectToRoute('cart');
     }
 
-    // Diminuer un élément du panier
-    #[Route('/cart/decrease/{id}', name: 'decrease_to_cart'), IsGranted('ROLE_USER')]
-    public function decrease(Cart $cart, $id)
-    {
-        $cart->decrease($id);
-        return $this->redirectToRoute('cart');
-    }
 }
