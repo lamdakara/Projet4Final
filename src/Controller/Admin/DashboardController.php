@@ -2,6 +2,7 @@
 
 namespace App\Controller\Admin;
 
+use App\Entity\Article;
 use App\Entity\Care;
 use App\Entity\Order;
 use App\Entity\User;
@@ -49,6 +50,7 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Soins', 'fas fa-tag', Care::class);
         yield MenuItem::linkToCrud('Réservations', 'fas fa-shopping-cart', Order::class);
         yield MenuItem::linkToCrud('Utilisateurs', 'fas fa-user', User::class);
+        yield MenuItem::linkToCrud('Blog', 'fas fa-user', Article::class);
 
     }
 }

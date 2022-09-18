@@ -25,9 +25,10 @@ class RegisterController extends AbstractController
     #[Route('/inscription', name: 'register')]
     public function index(Request $request, UserPasswordHasherInterface $passwordHasher): Response
     {
-        $notification = null;
-
+    
         // Sauvegarder les informations dans la BDD
+        $notification = null;
+        
         $user = new User();
         $form = $this->createForm(RegisterType::class, $user);
 
