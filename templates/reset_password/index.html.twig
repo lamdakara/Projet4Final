@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mot de passe oublié - Lili Giroud{% endblock %}
+
+{% block stylesheets %}<link rel="stylesheet" href="{{asset('assets/css/passwordReset.css')}}">{% endblock %}
+
+
+{% block body %}
+	<form method="post" id="password">
+		<!-- CONTAINER FORMULAIRE -->
+		<div id="formPassword">
+			<label class="labelForm" for="inputEmail">E-mail</label>
+			<input class="inputForm" type="email" name="email" autocomplete="email" required autofocus>
+		</div>
+
+		<!-- BOUTON CONNEXION -->	
+		<div id="buttonLogin">
+			<button type="submit" id="passwordResetButton">Réinitialiser mon mot de passe</button>
+		</div>
+
+		<!-- LIEN DE CONNEXION -->
+		<p>Où souhaitez-vous, <a href="{{path('app_login')}}" id="loginPassword">vous connecter</a> ?</p>
+
+		<!-- IMAGE ILLUSTRATION -->
+		<img src="{{asset('assets/img/illustration/separatorDecouv.svg')}}" alt"" id="separatorLogin">
+
+	</div>
+</form>
+{% endblock %}

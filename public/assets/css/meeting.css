@@ -1,0 +1,143 @@
+/* -------- HEADER RDV --------*/
+/* --- Container globale header ---*/
+#meetingHeader {
+    width: 100%;
+    height: 750px;
+    background-image: url(../img/meeting/backgroundMeeting.webp);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+/* --- Cadre blanc ---*/
+#meetingContainer {
+    width: 40%;
+    height: auto;
+    background: rgba(255, 255, 255, 0.85);
+    margin-left: 60px;
+    padding: 100px;
+}
+
+/* --- Titre et texte ---*/
+/* Titre h2 */
+#meetingContainer h2 {
+    text-align: left;
+}
+
+/* Paragraphe */
+#meetingContainer p {
+    font-weight: 400;
+    font-size: 28px;
+    align-items: center;
+    color: var(--second-color);
+}
+
+/* -------- EXPLICATION RDV --------*/
+/* --- Container globale ---*/
+#meetingExplain {
+    padding: 100px 0;
+}
+
+/* --- Titre texte et image ---*/
+/* Container */
+#meetingText {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: 320px 400px 320px;
+    padding: 50px;
+}
+
+/* Titre h3 */
+#meetingExplain h3,
+#meeting h3 {
+    text-align: center;
+    padding-bottom: 50px;
+}
+
+/* Alignement */
+#meetingText p,
+#meetingText img {
+    align-self: center;
+    justify-self: center;
+}
+
+/* --- Illustration femme ---*/
+#meetingText img {
+    width: 100%;
+    max-width: 300px;
+    height: 560px;
+    object-fit: cover;
+}
+
+
+/* -------- PRISE RDV --------*/
+#meeting {
+    padding: 50px;
+}
+
+/* -------- MEDIA QUERIES --------*/
+@media screen and (max-width: 1350px) {
+
+    /* -------- EXPLICATION RDV --------*/
+    /* --- Cadre blanc ---*/
+    #meetingContainer {
+        width: 60%;
+    }
+}
+
+@media screen and (max-width: 1080px) {
+
+    /* -------- EXPLICATION RDV --------*/
+    /* --- Titre texte et image ---*/
+    /* Container */
+    #meetingText {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+@media screen and (max-width: 920px) {
+
+    /* -------- HEADER RDV --------*/
+    /* --- Container globale header ---*/
+    #meetingHeader {
+        height: 600px;
+    }
+
+    /* --- Cadre blanc ---*/
+    #meetingContainer {
+        width: 90%;
+        height: auto;
+        background: rgba(255, 255, 255, 0.85);
+        margin-left: auto;
+        margin-right: auto;
+        padding: 80px 50px;
+    }
+
+    /* -------- EXPLICATION RDV --------*/
+    /* --- Container globale ---*/
+    #meetingExplain {
+        padding: 80px 0 40px 0;
+    }
+
+    /* --- Titre texte et image ---*/
+    /* Container */
+    #meetingText {
+        grid-template-columns: 1fr;
+    }
+
+    /* Titre h3 */
+    #meetingExplain h3,
+    #meeting h3 {
+        padding-bottom: 0;
+    }
+
+    /* -------- PRISE RDV --------*/
+    #meeting {
+        padding: 0 50px;
+    }
+
+}

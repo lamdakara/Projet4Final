@@ -1,0 +1,67 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mes adresses - Lili Giroud{% endblock %}
+
+{% block stylesheets %}<link rel="stylesheet" href="{{asset('assets/css/address.css')}}">{% endblock %}
+
+{% block account %}{% endblock %}
+
+{% block body %}
+	<main id="addressAccount">
+
+		<!-- TITRE H1 -->
+		<h1 class="title">Mes adresses</h1>
+
+		<!-- PARAGRAPHE SI PAS D'ADRESSE -->
+		{% if app.user.addresses|length == 0 %}
+		<p id="noAddress">Vous n'avez pas encore ajouté d'adresse dans votre compte client. Pour en ajouter une, veuillez <a href="">cliquer ici</a></p>
+
+		<!-- MES ADRESSES -->
+		{% else %}
+
+		<!-- Container globale des adresses -->
+		<div id="containerAddress">
+			{% for address in app.user.addresses %}
+
+			<!-- Container par adresse -->
+			<div class="itemAddress">
+
+				<!-- Nom de l'adresse -->
+				<div class="nameAddress">
+					<p>{{address.name}}</p>
+				</div>
+
+				<!-- Nom prénom -->
+				<div class="addressInfo">
+					<p>{{address.civility}} {{address.lastname}} {{address.firstname}}</p>
+				</div>
+
+				<!-- Adresse -->
+				<div class="addressInfo">
+					<p>{{address.address}} {{address.postal}} {{address.city}}</p>
+				</div>
+
+				<!-- Téléphone -->
+				<div class="addressInfo">
+					<p>{{address.phone}}</p>
+				</div>
+
+				<!-- Lien éditer supprimer -->
+				<div class="linkAddress">	
+					<a href="{{path('account_address_edit',{'id': address.id})}}">Modifier</a>
+					<a href="{{path('account_address_delete',{'id': address.id})}}">Supprimer</a>
+				</div>
+			</div>
+			{% endfor %}
+			
+		</div>
+		{% endif %}
+
+		<!-- BOUTON AJOUTER -->
+		<a href="{{path('account_address_add')}}" class="buttonBlue">Ajouter une adresse</a>
+
+		<!-- IMAGE ILLUSTRATION -->
+		<img src="{{asset('assets/img/illustration/separatorDecouv.svg')}}" alt"" id="separatorForm">
+
+	</main>
+{% endblock %}

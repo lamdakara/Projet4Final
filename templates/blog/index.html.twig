@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Blog - Lili Giroud{% endblock %}
+
+{% block stylesheets %}<link rel="stylesheet" href="{{asset('assets/css/blog.css')}}">{% endblock %}
+
+{% block body %}
+	<!--DERNIERS ARTICLES -->
+	<section id="lastArticle">
+
+		<!-- Titre -->
+		<h2 class="title">Derniers articles</h2>
+
+		<!-- Article -->
+		<div class="containerArticle">
+			{% for article in articles %}
+			<article class="articleThumb">
+				<img src="{{ article.lien }}" alt="" class="imgArticle">
+				<h3 class="titleThree">{{ article.titre }}</h3>
+				<p class="paragraphType">{{ article.contenu|u.truncate(200, '...')}}<a href="{{ path('app_article_show', {id: article.id}) }}" class="readMore">Lire la suite</a></p>
+			</article>
+			{% endfor %}
+		</div>
+
+	</section>
+
+	<!-- ARTICLES POPULAIRES -->
+	<img src="{{asset('assets/img/illustration/separatorBlog.svg')}}" alt="illustration en ligne" id="lineSeparator">
+
+	<!-- ARTICLES POPULAIRES -->
+	<section id="popArticle">
+
+		<!-- Titre -->
+		<h2 class="title">Articles populaires</h2>
+
+		<!-- Article -->
+		<div class="containerArticle">
+			<article class="articleThumb">
+				<img src="{{asset('assets/img/blog/blog3.webp')}}" alt="" class="imgArticle">
+				<h3 class="titleThree">Lorem ipsum dolor sit amet.</h3>
+				<p class="paragraphType">Est dignissimos aspernatur aut velit perspiciatis sit velit ratione ut explicabo vero ab atque velit quo
+					                    ipsam repudiandae. Quia id similique accusantium et natus eveniet sed adipisci quam...
+					<a href="#" class="readMore">Lire la suite</a>
+				</p>
+			</article>
+		</div>
+
+		<a href="#" class="buttonBrown" id="articleButton">Voir tous les articles</a>
+
+	</section>
+
+{% endblock %}

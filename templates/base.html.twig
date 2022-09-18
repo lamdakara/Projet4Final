@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+	<head>
+		<!-- META DONNEES -->
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="Lili Giroud, spécialiste en madérothérapie vous propose ses services de massages et de soins à domicile aux alentours de Toulon">
+		<meta name="keywords" content="madérothérapie, soin, corps, visage, faciale, ventre, jambes, avant/après, remodelage, drainage lymphatique, graisse, poids, cellulite, toxines, circulation sanguine, naturel, thérapie, minceur, sport, bien-être, massage, relaxant">
+		<meta name="author" content="Alycia Bedel et Sekouba Fofana">
+		<meta name="copyright" content="© Sixième Sens">
+
+		<title>
+			{% block title %}{% endblock %}
+		</title>
+
+
+		<!-- CSS -->
+		<link rel="stylesheet" href="{{asset('assets/css/base.css')}}">
+		<link rel="stylesheet" href="{{asset('assets/css/account.css')}}">
+		{% block stylesheets %}{% endblock %}
+		{% block javascript %}{% endblock %}
+		</head>
+
+		<body>
+
+			{% block menu %}
+				<!-- MENU -->
+				<nav
+					id="menu">
+
+					<!-- Container menu gauche -->
+					<div class="navLink">
+						<a href="{{path('home')}}">Accueil</a>
+						<a href="{{path('discovery')}}">Découvrir</a>
+						<a href="{{path('services')}}">Prestations et tarifs</a>
+					</div>
+
+					<!-- Logo -->
+					<div id="mobileMenu">
+						<a href="{{path('home')}}"><img src="{{asset('assets/img/logoLiliGiroud.svg')}}" alt="logo représentant deux mains l'une au-dessus de l'autre, au milieu le nom de Lili Giroud avec son service massages en madérothérapie" id="logo"></a>
+						<img src="{{asset('assets/img/menuBurger.svg')}}" alt="icon menu burger" id="burgerMenu">
+					</div>
+
+
+					<!-- Container menu droit-->
+					<div class="navLink" id="navRight">
+						<div id="meetShop">
+							<a href="{{path('cart')}}"><img src="{{asset('assets/img/icon/panier.png')}}" alt="icon panier"></a>
+							<a href="{{path('meeting')}}">Rendez-vous</a>
+						</div>
+						<a href="{{path('blog')}}" id="marginLink">Blog</a>
+						{% if app.user %}
+						<a href="{{path('account')}}" class="navBurgerLink">Mon Compte</a>
+						{% else %}
+						<a href="{{path('app_login')}}" class="navBurgerLink">Connexion</a>
+						{% endif %}
+
+					</div>
+
+					<!-- Menu mobile -->
+					<div id="navMobile">
+						<img src="{{asset('assets/img/crossIcon.svg')}}" alt="" id="crossIcon">
+						<a href="{{path('home')}}" class="navBurgerLink">Accueil</a>
+						<a href="{{path('discovery')}}" class="navBurgerLink">Découvrir</a>
+						<a href="{{path('services')}}" class="navBurgerLink">Prestations et tarifs</a>
+						<a href="{{path('meeting')}}" class="navBurgerLink">Rendez-vous</a>
+						<a href="{{path('blog')}}" class="navBurgerLink">Blog</a>
+						
+						{% if app.user %}<a href="{{path('account')}}" class="navBurgerLink">Mon Compte</a>{% else %}<a href="{{path('app_login')}}" class="navBurgerLink">Connexion</a>{% endif %}
+						<a href="{{path('cart')}}" class="navBurgerLink"><img src="{{asset('assets/img/icon/panier.png')}}" alt="icon panier"></a>
+					</div>
+
+				</nav>
+			{% endblock %}
+
+			{% if block("account") is defined %}
+				<!-- PHOTO + TEXTE BIENVENUE -->
+				<header id="accountHeader">
+					<img src="{{asset('assets/img/account/womanprofil.jpg')}}" alt="votre photo de profil">
+					<p class="titleThree">Bienvenue, {{app.user.firstname}} {{app.user.lastname}}.</p>
+				</header>
+
+				<!-- NAVIGATION COMPTE -->
+				<nav id="navAccount">
+					<a href="{{path('account')}}">Mes réservations</a>
+					<a href="{{path('account_address')}}">Mes adresses</a>
+					<a href="{{path('account_password')}}">Modifier mon mot de passe</a>
+					<a href="{{path('app_logout')}}">Déconnexion</a>
+				</nav>
+			{% endif %}
+			{% block body %}{% endblock %}
+
+			{% block footer %}
+				<!-- FOOTER -->
+				<footer>
+
+					<!-- Menu icon -->
+					<section id="iconFooter">
+						<a href="#"><img src="{{asset('assets/img/icon/facebookIcon.svg')}}" alt="icon facebook"></a>
+						<a href="#"><img src="{{asset('assets/img/icon/twitterIcon.svg')}}" alt="icon twitter"></a>
+						<a href="#"><img src="{{asset('assets/img/icon/linkedinIcon.svg')}}" alt="icon linkedin"></a>
+						<a href="#"><img src="{{asset('assets/img/icon/instagramIcon.svg')}}" alt="icon instagram"></a>
+					</section>
+
+					<!-- Lien juridique -->
+					<section id="navLaw">
+						<a href="{{path('legal_cgv')}}">CGV</a>
+						|
+						<a href="{{path('legal_cgu')}}">Mentions légales</a>
+						|
+						<a href="">Plan du site</a>
+					</section>
+
+				</footer>
+			{% endblock %}
+
+			<script src="{{asset('assets/js/menuBurger.js')}}"></script>
+			{% block javascripts %}{% endblock %}
+		</body>
+
+	</html>

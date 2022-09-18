@@ -1,0 +1,236 @@
+/* -------- BIOGRAPHIE --------*/
+/* --- Container biographie ---*/
+#biography {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: center;
+    align-items: center;
+    padding-top: 50px;
+}
+
+/* --- Texte biographie ---*/
+#bioContainer {
+    align-self: center;
+    justify-self: center;
+    width: 70%;
+}
+
+/* --- Photo biographie ---*/
+.positionImg img {
+    width: 100%;
+    max-width: 500px;
+    height: 620px;
+    object-fit: cover;
+}
+
+/* -------- GENERALITES BIENFAITS ET RESULTATS --------*/
+/* --- Padding sous les h2 ---*/
+#containerBenefits h2,
+#containerResult h2 {
+    padding-bottom: 80px;
+}
+
+/* --- Container des articles ---*/
+.box {
+    justify-self: center;
+    width: 90%;
+}
+
+/* --- Photos des articles ---*/
+.box img {
+    width: 100%;
+    height: 265px;
+    margin-bottom: 40px;
+    object-fit: cover;
+}
+
+/* --- Container grille ---*/
+.containerPresentation {
+    width: 90%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 30px;
+    justify-content: center;
+    margin: auto;
+    padding-bottom: 100px;
+}
+
+/* -------- BIENFAITS --------*/
+/* --- Container bienfaits ---*/
+#containerBenefits {
+    width: 100%;
+    padding-bottom: 50px;
+}
+
+/* -------- RESULTATS --------*/
+/* --- Container résultats ---*/
+#containerResult {
+    padding-bottom: 100px;
+    position: relative;
+}
+
+/* -------- ILLUSTRATION FEMME --------*/
+#faceWoman {
+    width: 300px;
+    height: auto;
+    object-fit: cover;
+    margin-bottom: 40px;
+    z-index: 6000;
+    position: absolute;
+    top: 620px;
+    right: 100px;
+}
+
+/* -------- CITATION --------*/
+/* --- Container background citation ---*/
+#containerQuote {
+    width: 100%;
+    height: 750px;
+    background-image: url(../img/discovery/citation.webp);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 100px;
+}
+
+/* --- Cadre blanc ---*/
+#whiteBack {
+    width: 65%;
+    height: auto;
+    background: rgba(255, 255, 255, 0.85);
+    padding: 60px 0 70px 0;
+}
+
+/* --- Citation phrase ---*/
+.quote {
+    width: 70%;
+    margin: 30px auto 0 auto;
+    text-align: center;
+}
+
+/* Citation */
+.quote q {
+    text-align: center;
+    font-style: italic;
+    font-weight: 600;
+    font-size: 28px;
+    color: var(--second-color);
+}
+
+/* Nom de l'auteur */
+.quote p {
+    text-align: center;
+    font-weight: 600;
+    font-size: 24px;
+    color: rgba(83, 173, 174, 0.6);
+}
+
+
+/* -------- MEDIA QUERIES --------*/
+@media screen and (max-width: 1250px) {
+
+    /* -------- GENERALITES BIENFAITS ET RESULTATS --------*/
+    /* --- Container grille bienfaits ---*/
+    .containerPresentation {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* -------- ILLUSTRATION FEMME --------*/
+    #faceWoman {
+        width: 300px;
+        height: auto;
+        object-fit: cover;
+        margin-bottom: 40px;
+        z-index: 6000;
+        position: absolute;
+        top: 660px;
+        right: 150px;
+    }
+
+    /* -------- CITATION --------*/
+    /* --- Cadre blanc ---*/
+    #whiteBack {
+        width: 80%;
+    }
+
+}
+
+@media screen and (max-width: 920px) {
+
+    /* -------- BIOGRAPHIE --------*/
+    /* --- Container biographie ---*/
+    #biography {
+        grid-template-columns: 1fr;
+        padding: 0;
+    }
+
+    /* --- Texte biographie ---*/
+    #bioContainer {
+        width: 90%;
+    }
+
+    /* --- Photo biographie ---*/
+    .positionImg img {
+        padding-top: 30px;
+        padding-bottom: 50px;
+    }
+
+    /* --- Texte biographie ---*/
+    #bioContainer {
+        order: 2;
+    }
+
+    /* -------- GENERALITES BIENFAITS ET RESULTATS --------*/
+    /* --- Padding sous les h2 ---*/
+    #containerBenefits h2,
+    #containerResult h2 {
+        padding-bottom: 50px;
+    }
+
+    /* --- Container des articles ---*/
+    .box {
+        margin-bottom: 60px;
+    }
+
+    /* -------- BIENFAITS --------*/
+    /* --- Container bienfaits ---*/
+    #containerBenefits {
+        width: 100%;
+        padding-bottom: 50;
+    }
+
+    /* --- Container grille bienfaits ---*/
+    .containerPresentation {
+        width: 90%;
+        grid-template-columns: 1fr;
+        grid-gap: 0px;
+        margin: auto;
+        padding-bottom: 50px;
+    }
+
+    /* --- Container grille bienfaits ---*/
+    .containerPresentation {
+        padding-bottom: 0;
+    }
+
+    /* -------- ILLUSTRATION FEMME --------*/
+    #faceWoman {
+        display: none;
+    }
+
+    /* -------- ILLUSTRATION SEPARATOR --------*/
+    #heartSeparator {
+        padding: 30px 0;
+    }
+
+    /* -------- CITATION --------*/
+    /* --- Cadre blanc ---*/
+    #whiteBack {
+        width: 90%;
+    }
+
+}

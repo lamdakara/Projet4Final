@@ -1,0 +1,82 @@
+/* -------- GENERALITE ARTICLE --------*/
+/* --- Container article ---*/
+.containerArticle {
+    width: 80%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 30px;
+    margin: auto;
+    padding-top: 50px;
+}
+
+/* --- Article ---*/
+.articleThumb {
+    width: 85%;
+    justify-self: center;
+}
+
+/* --- Lien lire la suite ---*/
+.articleThumb a {
+    text-decoration: none;
+    font-weight: 900;
+    color: var(--text-color);
+}
+
+/* --- Stylisation des liens en active et hover ---*/
+.articleThumb a:active,
+.articleThumb a:hover {
+    color: var(--main-color);
+}
+
+/* --- Photos des articles ---*/
+.articleThumb img {
+    width: 100%;
+    height: 345px;
+    margin-bottom: 40px;
+    object-fit: cover;
+}
+
+/* -------- DERNIERS ARTICLES --------*/
+#lastArticle {
+    padding-top: 50px;
+}
+
+/* -------- SEPARATEUR IMAGE --------*/
+#lineSeparator {
+    width: 70%;
+    padding: 10px 0;
+}
+
+/* -------- ARTICLES POPULAIRES --------*/
+/* --- Container générale ---*/
+#popArticle {
+    padding-bottom: 100px;
+}
+
+/* --- Bouton ---*/
+#articleButton {
+    margin-top: 100px;
+}
+
+/* -------- MEDIA QUERIES --------*/
+@media screen and (max-width: 920px) {
+
+    /* -------- GENERALITE ARTICLE --------*/
+    /* --- Container article ---*/
+    .containerArticle {
+        width: 90%;
+        grid-template-columns: 1fr;
+    }
+
+    /* --- Article ---*/
+    .articleThumb {
+        width: 95%;
+        margin-bottom: 30px;
+    }
+
+    /* -------- SEPARATEUR IMAGE --------*/
+    #lineSeparator {
+        width: 100%;
+        padding: 20px 0;
+    }
+}

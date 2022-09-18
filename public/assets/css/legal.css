@@ -1,0 +1,30 @@
+/* Container globale */
+main {
+    width: 90%;
+    margin: auto;
+    margin-bottom: 100px;
+}
+
+/* Titre h1 */
+main h1 {
+    margin: 100px 0 40px 0;
+}
+
+/* Vigueur */
+#center {
+    text-align: center;
+    font-weight: 400;
+    font-size: 24px;
+    color: var(--black);
+    padding-bottom: 40px;
+}
+
+/* Titre h2 */
+main h2 {
+    padding-top: 50px;
+}
+
+/* Paragraphe */
+main p {
+    padding-bottom: 20px;
+}

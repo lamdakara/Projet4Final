@@ -1,0 +1,269 @@
+/* -------- TITRE --------*/
+#addressAccount h1 {
+    padding: 80px 0 30px 0;
+}
+
+/* -------- SI PAS D'ADRESSE --------*/
+/* Paragraphe */
+#noAddress {
+    text-align: center;
+    font-size: 20px;
+    color: var(--text-color);
+    padding: 30px 10px;
+}
+
+/* Lien */
+#addressAccount p a {
+    font-weight: 800;
+    color: var(--second-color);
+    text-decoration: none;
+}
+
+/* -------- MES ADRESSES --------*/
+/* Container globale */
+#containerAddress {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-content: center;
+    align-items: center;
+    padding: 50px 50px;
+    grid-gap: 50px;
+}
+
+/* Container des adresses */
+.itemAddress {
+    width: 100%;
+    max-width: 420px;
+    height: 250px;
+    justify-self: center;
+    align-self: center;
+    border: 2px solid var(--second-color);
+    border-radius: 25px;
+    padding: 50px;
+    font-size: 20px;
+    color: var(--text-color);
+}
+
+/* Adresse texte */
+.nameAddress p,
+.addressInfo p {
+    text-align: left;
+}
+
+/* Nom des adresses */
+.nameAddress p {
+    font-weight: bolder;
+    padding-bottom: 10px;
+    text-transform: uppercase;
+}
+
+/* Lien ajouter modifier */
+.linkAddress {
+    display: flex;
+    justify-content: end;
+    padding: 20px 0;
+}
+
+/* Lien */
+.linkAddress a {
+    text-decoration: none;
+    color: var(--second-color);
+    font-weight: bolder;
+    padding-right: 20px;
+}
+
+/* Stylisation hover active */
+.linkAddress a:hover,
+.linkAddress a:active {
+    color: var(--main-color);
+}
+
+/* -------- BOUTON AJOUTER --------*/
+#addressAccount .buttonBlue {
+    margin-top: 30px;
+}
+
+/* -------- MEDIA QUERIES --------*/
+@media screen and (max-width: 1270px) {
+
+    /* Container globale */
+    #containerAddress {
+        grid-template-columns: repeat(2, 1fr);
+        row-gap: 50px;
+    }
+
+}
+
+@media screen and (max-width: 920px) {
+
+    /* Titre h1 */
+    #addressAccount h1 {
+        padding: 80px 0 0px 0;
+    }
+
+    /* Container globale */
+    #containerAddress {
+        grid-template-columns: 1fr;
+        row-gap: 50px;
+    }
+
+}
+
+
+/* -------- ADRESSE FORME --------*/
+/* Titre h1 */
+#addressMain h1 {
+    padding: 100px 0;
+}
+
+/*--- Formulaire ---*/
+/* Container formulaire */
+#containerAddressForm {
+    width: 80%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas:
+        'name name'
+        'civility civility'
+        'lastname firstname'
+        'address address'
+        'postal city'
+        'phone .';
+    column-gap: 50px;
+    font-size: 24px;
+    color: var(--text-color);
+    font-weight: 400;
+}
+
+/* Input */
+.inputAddress input {
+    width: 100%;
+    height: 58px;
+    border: 1px solid var(--text-color);
+    margin: 10px 0 40px 0;
+    outline: none;
+    background-color: white;
+    padding: 0 20px;
+    font-size: 18px;
+    line-height: 18px;
+    color: var(--text-color);
+}
+
+/* Civilité */
+/* Retrait fieldset */
+#civilityForm fieldset {
+    border: 0px solid transparent;
+}
+
+/* Retrait légende label */
+#civilityForm fieldset legend {
+    display: none;
+}
+
+/* Mise en place des ratio */
+#civilityForm {
+    grid-area: civility;
+    margin-top: 30px;
+}
+
+#address_civility {
+    display: flex;
+}
+
+.form-check {
+    margin-right: 20px;
+    padding-bottom: 30px;
+}
+
+/* Nom de l'adresse */
+#nameForm {
+    grid-area: name;
+}
+
+/* Nom */
+#lastnameForm {
+    grid-area: lastname;
+}
+
+/* Prénom */
+#firstnameForm {
+    grid-area: firstname;
+}
+
+/* Adresse */
+#addressForm {
+    grid-area: address;
+}
+
+/* Code postal */
+#postalForm {
+    grid-area: postal;
+}
+
+/* Ville */
+#cityForm {
+    grid-area: city;
+}
+
+/* Téléphone */
+#phoneForm {
+    grid-area: phone;
+}
+
+/* Container bouton */
+#submitButton {
+    grid-area: button;
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+/* Bouton */
+#address_submit {
+    width: 400px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 28px;
+    text-transform: uppercase;
+    text-align: center;
+    color: var(--second-color);
+    display: block;
+    padding: 30px 0;
+    border: 5px solid var(--second-color);
+    border-radius: 25px;
+    background-color: transparent;
+}
+
+#address_submit:hover,
+#address_submit:active {
+    color: var(--white);
+    background-color: var(--second-color);
+    border: 5px solid var(--second-color);
+}
+
+
+/* -------- MEDIA QUERIES --------*/
+@media screen and (max-width: 920px) {
+
+    /* Titre h1 */
+    #addressMain h1 {
+        padding: 100px 0 50px 0;
+    }
+
+    /* Container formulaire */
+    #containerAddressForm {
+        width: 90%;
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            'name .'
+            'civility .'
+            'lastname .'
+            'firstname .'
+            'address .'
+            'postal .'
+            'city .'
+            'phone .';
+        column-gap: 0px;
+    }
+}

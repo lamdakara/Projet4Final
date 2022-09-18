@@ -1,0 +1,89 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Réserver vos soins {% endblock %}
+
+{% block stylesheets %}
+
+<!-- begin rdv head -->
+		 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
+  integrity=
+"sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I"  crossorigin="anonymous">
+ <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+  integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+  crossorigin="anonymous"> </script>
+ <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"
+  integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/"
+  crossorigin="anonymous">
+ </script>
+<!-- end rdv head -->
+
+<link rel="stylesheet" href="{{asset('assets/css/meeting.css')}}">
+{% endblock %}
+
+{% block body %}
+
+    <!-- HEADER RDV -->
+    <header id="meetingHeader">
+
+        <!-- Container texte -->
+        <div id="meetingContainer">
+            <h2 class="title meetingTitle">Prenez rendez-vous en ligne.</h2>
+            <p>Est dignissimos aspernatur aut velit perspiciatis sit velit ratione ut explicabo vero ab atque velit quo
+                ipsam repudiandae.</p>
+        </div>
+
+    </header>
+
+    <!-- EXPLICATION RDV -->
+    <section id="meetingExplain">
+
+        <!-- Titre -->
+        <h3 class="titleThree">Quelques recommandations pour le bon déroulement de votre rendez-vous...</h3>
+
+        <!-- Texte explication rdv -->
+        <div id="meetingText">
+            <p class="paragraphType">Est dignissimos aspernatur aut velit perspiciatis sit velit ratione ut explicabo vero
+                ab atque velit quo
+                ipsam repudiandae. Est dignissimos aspernatur aut velit perspiciatis sit velit ratione ut explicabo vero ab
+                atque velit quo ipsam repudiandae.</p>
+            <img src="{{asset('assets/img/illustration/womanBack.svg')}}" alt="illustration en ligne d'une femme de dos nu">
+            <p class="paragraphType">Est dignissimos aspernatur aut velit perspiciatis sit velit ratione ut explicabo vero
+                ab atque velit quo
+                ipsam repudiandae. Est dignissimos aspernatur aut velit perspiciatis sit velit ratione ut explicabo vero ab
+                atque velit quo ipsam repudiandae.</p>
+        </div>
+
+    </section>
+
+    <!-- offres 1  -->
+    <div style="text-align: center;" >
+    <h2>La madérothérapie </h2>
+    <div class="list-group">
+
+        {% for message in messages %}
+            <div class="list-group-item d-flex justify-content-between align-items-center offre-item">
+                <div>
+                    <h3 class="titleThree"> {{ message.titre }}</h3>        
+                    <p class="paragraphType">{{ message.description }}</p>
+                </div>
+                <div>
+                    <div><span class="badge badgeOffre" > {{ message.prix }}€ </span></div>
+                    <div><span class="badge badgeOffre"> {{ message.duree }}min </span></div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    </div>
+
+        </section>
+
+        <!-- PRISE RDV -->
+        <section id="meeting">
+
+            <!-- Titre -->
+            <h3 class="titleThree" onclick="location.href='{{path("calendar")}}';">Retrouvez les dates disponibles pour votre soin</h3>
+
+        </section>
+
+
+{% endblock %}

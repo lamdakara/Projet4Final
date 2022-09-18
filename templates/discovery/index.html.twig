@@ -1,0 +1,148 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Découvrir la madérothérapie {% endblock %}
+
+{% block stylesheets %}<link rel="stylesheet" href="{{asset('assets/css/discovery.css')}}">{% endblock %}
+
+{% block body %}
+    <!-- BIOGRAPHIE -->
+    <section id="biography">
+
+        <!-- Biographie -->
+        <div id="bioContainer">
+            <h2 class="title">Lili Giroud, fondatrice</h2>
+            <p class="paragraphType">Lorem ipsum dolor sit amet. Est dignissimos aspernatur aut velit perspiciatis sit velit
+                ratione ut
+                explicabo vero ab atque velit quo ipsam repudiandae. Et consequuntur quia id similique accusantium et
+                natus eveniet sed adipisci quam. Non aliquam odio quo accusamus architecto quo repellendus explicabo cum
+                cupiditate accusamus ut reprehenderit totam quo nisi molestiae. Ipsum dolor sit amet !</p>
+            <br>
+            <p class="paragraphType">Est dignissimos aspernatur aut velit perspiciatis sit velit ratione ut explicabo vero
+                ab atque velit quo
+                ipsam repudiandae. Et consequuntur quia id similique accusantium et natus eveniet sed adipisci quam. Non
+                aliquam odio quo accusamus architecto quo repellendus explicabo cum cupiditate accusamus ut
+                reprehenderit totam quo nisi molestiae. Ipsum dolor sit amet !</p>
+        </div>
+
+        <!-- Photo fondatrice -->
+        <div class="positionImg">
+            <img src="{{asset('assets/img/discovery/biography.webp')}}"
+                alt="femme cheveux attachée en deux couettes brunes, tenant un outil de massage en bois, massant une personne allongée">
+        </div>
+
+    </section>
+
+    <!-- SEPARATEUR IMAGE -->
+    <img src="{{asset('assets/img/illustration/separatorDecouv.svg')}}" alt="illustration fil avec coeur" id="heartSeparator">
+
+    <!-- BIENFAITS -->
+    <section id="containerBenefits">
+
+        <!--- Titre -->
+        <h2 class="title">Les bienfaits de la madérothérapie</h2>
+
+        <!-- Présentation des bienfaits -->
+        <div class="containerPresentation">
+
+            <!-- Cadre bienfaits 1 -->
+            <article class="box">
+                <img src="{{asset('assets/img/discovery/bienfaits1.jpg')}}" alt="massage jambe pour un drainage lymphatique">
+                <p class="paragraphType">Est dignissimos aspernatur aut velit perspiciatis sit velit ratione ut explicabo
+                    vero ab atque velit quo
+                    ipsam repudiandae. Et consequuntur quia id similique accusantium et natus eveniet sed adipisci quam.</p>
+            </article>
+
+            <!-- Cadre bienfaits 2 -->
+            <article class="box">
+                <img src="{{asset('assets/img/discovery/bienfaits2.webp')}}" alt="soin du visage sur une femme avec un outil de madérothérapie">
+                <p class="paragraphType">Est dignissimos aspernatur aut velit perspiciatis sit velit ratione ut explicabo
+                    vero ab atque velit quo
+                    ipsam repudiandae. Et consequuntur quia id similique accusantium et natus eveniet sed adipisci quam.</p>
+            </article>
+
+            <!-- Cadre bienfaits 3 -->
+            <article class="box">
+                <img src="{{asset('assets/img/discovery/bienfaits3.jpg')}}" alt="thérapie de remodelage des jambes sur une femme">
+                <p class="paragraphType">Est dignissimos aspernatur aut velit perspiciatis sit velit ratione ut explicabo
+                    vero ab atque velit quo
+                    ipsam repudiandae. Et consequuntur quia id similique accusantium et natus eveniet sed adipisci quam.</p>
+            </article>
+
+        </div>
+
+    </section>
+
+    <!-- RESULTATS -->
+    <section id="containerResult">
+
+        <!-- Titre -->
+        <h2 class="title">Les résultats de la madérothérapie</h2>
+
+        <!-- Présentation des bienfaits -->
+        <div class="containerPresentation">
+
+            <!-- Cadre bienfaits 1 -->
+            <article class="box">
+                <img src="{{asset('assets/img/discovery/result1.webp')}}" alt="massage jambe pour un drainage lymphatique">
+                <p class="paragraphType">Est dignissimos aspernatur aut velit perspiciatis sit velit ratione ut explicabo
+                    vero ab atque velit quo
+                    ipsam repudiandae. Et consequuntur quia id similique accusantium et natus eveniet sed adipisci quam.</p>
+            </article>
+
+            <!-- Cadre bienfaits 2 -->
+            <article class="box">
+                <img src="{{asset('assets/img/discovery/result2.webp')}}" alt="soin du visage sur une femme avec un outil de madérothérapie">
+                <p class="paragraphType">Est dignissimos aspernatur aut velit perspiciatis sit velit ratione ut explicabo
+                    vero ab atque velit quo
+                    ipsam repudiandae. Et consequuntur quia id similique accusantium et natus eveniet sed adipisci quam.</p>
+            </article>
+
+            <!-- Cadre bienfaits 3 -->
+            <article class="box">
+                <img src="{{asset('assets/img/discovery/result3.jpg')}}" alt="thérapie de remodelage des jambes sur une femme">
+                <p class="paragraphType">Est dignissimos aspernatur aut velit perspiciatis sit velit ratione ut explicabo
+                    vero ab atque velit quo
+                    ipsam repudiandae. Et consequuntur quia id similique accusantium et natus eveniet sed adipisci quam.</p>
+            </article>
+
+        </div>
+
+        <!-- BOUTON PRESTATIONS/TARIFS -->
+        <a href="{{path('services')}}" class="buttonBrown">Prestations et tarifs</a>
+
+        <!-- ILLUSTRATION VISAGE FEMME -->
+        <img src="{{asset('assets/img/illustration/womanFace.svg')}}" alt="illustration par un trait fin d'un visage d'une femme"
+            id="faceWoman">
+
+    </section>
+
+
+    <!-- CITATION -->
+    <section id="containerQuote">
+
+        <!-- Container citations -->
+        <div id="whiteBack">
+
+            <!-- Citation 1 -->
+            <div class="quote">
+                <q>Un corps libre de tensions et de fatigue permet d’affronter toutes les complexités de la vie.</q>
+                <p>Joseph Pilates</p>
+            </div>
+
+            <!-- Citation 2 -->
+            <div class="quote">
+                <q>La mélodie du massage apaise corps et esprit, emportant l’être vers les sphères de la plénitude.</q>
+                <p>David Ducher</p>
+            </div>
+
+            <!-- Citation 3 -->
+            <div class="quote">
+                <q>Prends soin de ton corps, c’est le seul endroit que tu aies pour vivre.</q>
+                <p>Jim Rohn</p>
+            </div>
+
+        </div>
+
+    </section>
+
+{% endblock %}

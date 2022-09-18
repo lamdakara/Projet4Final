@@ -1,0 +1,310 @@
+/* -------- POLICE --------*/
+@font-face {
+    font-family: 'adequateextra_light';
+    src: url('../fonts/adequate/adequate-extralight-webfont.woff2') format('woff2'),
+        url('../fonts/adequate/adequate-extralight-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'gill_sans';
+    src: url('../fonts/gillSans/gill_sans-webfont.woff2') format('woff2'),
+        url('../fonts/gillSans/gill_sans-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* -------- GENERAL --------*/
+*,
+::before,
+::after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    cursor: default;
+}
+
+/* --- COULEUR ---*/
+:root {
+    --main-color: #B17F4A;
+    --second-color: #53ADAE;
+    --footer-color: rgba(83, 173, 174, 0.2);
+    --text-color: #575756;
+    --black: #000000;
+    --white: #FFFFFF;
+}
+
+/* --- BODY ---*/
+body {
+    width: 100%;
+    height: 100vh;
+    font-family: 'gill_sans', Arial, Helvetica, sans-serif;
+}
+
+/* -------- CONTAINER PHOTO --------*/
+.positionImg {
+    width: 100%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+}
+
+/* -------- TITRE H2 --------*/
+.title {
+    font-family: 'adequateextra_light', Arial, Helvetica, sans-serif;
+    font-weight: 200;
+    font-size: 40px;
+    color: var(--main-color);
+    text-align: center;
+    padding-bottom: 30px;
+}
+
+.titleThree {
+    font-weight: 600;
+    font-size: 28px;
+    text-align: justify;
+    color: var(--second-color);
+    padding-bottom: 10px;
+}
+
+/* -------- PARAGRAPHE TYPE --------*/
+.paragraphType {
+    font-weight: 400;
+    font-size: 24px;
+    text-align: justify;
+    color: var(--text-color);
+}
+
+/* -------- BOUTON TYPE --------*/
+/*--- Bouton marron ---*/
+.buttonBrown {
+    width: 400px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 28px;
+    text-transform: uppercase;
+    text-align: center;
+    color: var(--main-color);
+    display: block;
+    padding: 30px 0;
+    border: 5px solid var(--main-color);
+    border-radius: 25px;
+    margin: auto;
+}
+
+.buttonBrown:hover,
+.buttonBrown:active {
+    color: var(--white);
+    background-color: var(--main-color);
+    border: 5px solid var(--main-color);
+}
+
+/*--- Bouton bleu ---*/
+.buttonBlue {
+    width: 400px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 28px;
+    text-transform: uppercase;
+    text-align: center;
+    color: var(--second-color);
+    display: block;
+    padding: 30px 0;
+    border: 5px solid var(--second-color);
+    border-radius: 25px;
+    margin: auto;
+    background-color: transparent;
+}
+
+.buttonBlue:hover,
+.buttonblue:active {
+    color: var(--white);
+    background-color: var(--second-color);
+    border: 5px solid var(--second-color);
+}
+
+/* -------- MENU --------*/
+/* --- Container du menu ---*/
+#menu {
+    display: grid;
+    position: relative;
+    grid-template-columns: 200px 1fr 200px;
+    justify-content: center;
+    padding: 50px;
+}
+
+/* --- Navigation général ---*/
+.navLink {
+    align-self: center;
+}
+
+/* Lien de navigation */
+.navLink a {
+    font-size: 24px;
+    font-weight: 600;
+    list-style: none;
+    margin: 40px 0;
+    text-decoration: none;
+    color: var(--black);
+    display: flex;
+    flex-direction: column;
+}
+
+/* Style sur hover ou active du lien */
+.navLink a:active,
+.navLink a:hover {
+    color: var(--second-color);
+}
+
+/* --- Logo ---*/
+#mobileMenu {
+    justify-self: center;
+}
+
+/* Icon menu burger */
+#burgerMenu {
+    display: none;
+    width: 70px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 20px;
+}
+
+/* Logo du site */
+#logo {
+    width: 400px;
+    height: auto;
+    margin: auto;
+}
+
+/* --- Navigation droite ---*/
+/* Lien rdv avec icon panier */
+#meetShop {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: -10px;
+}
+
+#marginLink {
+    margin-top: -10px;
+}
+
+/* Icon panier */
+#navRight img {
+    width: 48px;
+    height: auto;
+    margin-right: 10px;
+}
+
+/* Alignement des liens */
+#navRight a {
+    text-align: right;
+}
+
+
+/* --- Navigation mobile ---*/
+/* Container lien du menu mobile */
+#navMobile {
+    display: none;
+    flex-direction: column;
+    background-color: var(--white);
+    padding: 90px 0 50px 0;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+}
+
+/* Icone fermeture */
+#crossIcon {
+    width: 60px;
+    padding-top: 30px;
+    padding-right: 30px;
+    height: auto;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+/* Lien de navigation */
+#navMobile a {
+    color: var(--black);
+    font-size: 28px;
+    text-align: center;
+    text-decoration: none;
+    margin-bottom: 20px;
+}
+
+/* Style sur hover ou active du lien  */
+#navMobile a:hover,
+#navMobile a:active,
+#navMobile a:focus {
+    color: var(--second-color);
+}
+
+/* Icon panier */
+#navMobile a img {
+    width: 60px;
+    height: auto;
+}
+
+/* -------- MEDIA QUERIES --------*/
+@media screen and (max-width: 920px) {
+
+    /* --- Menu ---*/
+    /* Container du menu */
+    #menu {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
+    /* Navigation générale */
+    .navLink {
+        display: none;
+    }
+
+    /* --- Navigation mobile ---*/
+    /* Icon burger */
+    #burgerMenu {
+        display: block;
+    }
+}
+
+/* -------- FOOTER --------*/
+footer {
+    background-color: var(--footer-color);
+}
+
+/* Alignement des icones */
+#iconFooter,
+#navLaw {
+    display: flex;
+    justify-content: center;
+}
+
+/* Taille des icones */
+#iconFooter a img {
+    width: 113px;
+}
+
+/* Mise en style du texte */
+#navLaw a {
+    list-style: none;
+    text-decoration: none;
+    margin: 0 5px;
+    color: var(--text-color);
+    font-weight: 400;
+    font-size: 18px;
+}
+
+/* Padding / espacement footer */
+#iconFooter {
+    padding: 80px 0;
+}
+
+#navLaw {
+    padding-bottom: 40px;
+}

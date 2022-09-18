@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Connexion à mon compte - Lili Giroud{% endblock %}
+
+{% block stylesheets %}<link rel="stylesheet" href="{{asset('assets/css/login.css')}}">{% endblock %}
+
+
+{% block body %}
+	<form method="post" id="login">
+		{% if error %}
+			<div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+		{% endif %}
+
+		{% for message in app.flashes('notice') %}
+                <div>{{ message }}</div>
+        {% endfor %}
+
+		<!-- SI DEJA CONNECTE -->
+		{% if app.user %}
+			<p>Vous êtes déjà connecté en tant que
+				<span>{{app.user.email}}</span>, si ce n'est pas vous merci de vous
+				<a href="">déconnecter</a>
+			</p>
+		{% endif %}
+
+		<!-- CONTAINER FORMULAIRE -->
+		<div id="formLogin">
+			<label class="labelForm" for="inputEmail">E-mail</label>
+			<input class="inputForm" type="email" value="{{ last_username }}" name="email" autocomplete="email" required autofocus>
+			<label class="labelForm" for="inputPassword">Mot de passe</label>
+			<input class="inputForm" type="password" name="password" autocomplete="current-password" required>
+
+			<input
+			type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+
+			<!-- MOT DE PASSE OUBLIE -->
+			<a href="{{path('reset_password')}}" id="passwordReset">Mot de passe oublié ?</a>
+
+		</div>
+
+		<!-- BOUTON CONNEXION -->
+		<div id="buttonLogin">
+			<button class="buttonBlue" type="submit">Se connecter</button>
+		</div>
+
+		<!-- LIEN D'INSCRIPTION -->
+		<a href="{{path('register')}}" id="register">Pas encore de compte ?</a>
+
+		<!-- IMAGE ILLUSTRATION -->
+		<img src="{{asset('assets/img/illustration/separatorDecouv.svg')}}" alt"" id="separatorLogin">
+
+	</div>
+</form>
+{% endblock %}

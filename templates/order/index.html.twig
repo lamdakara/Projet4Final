@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Valider ma commande - Lili Giroud
+{% endblock %}
+
+{% block body %}
+	<h2 class="title">Je réserve mon soin</h2>
+	<p>Choisissez vos préférences avant de réserver votre soin</p>
+	<p>Choisir mon adresse pour mon soin à domicile</p>
+	{% set formHtml %}
+	{{form_start(form, {action:path('order_summary')})}}
+	{{form_label(form.addresses, 'Choisissez votre adresse de livraison')}}
+	<a href="{{path('account_address_add')}}">Ajouter une nouvelle adresse</a>
+	{{form_end(form)}}
+	{% endset %}
+
+	{{formHtml|replace({'[br]' : '</br>'})|raw}}
+	<p>Récapitulatif de votre réservation</p>
+
+	{% for key, cart in carts %}
+		{# {% if key > 0 %}séparation entre ligne ?{% endif %} #}
+		{{dump(cart)}}
+		{{cart.service.titre}}
+		{{cart.service.prix}}
+		{{cart|length}}
+
+	{% endfor %}
+	<a href="{{path('order_summary')}}">Payer</a>
+{% endblock %}

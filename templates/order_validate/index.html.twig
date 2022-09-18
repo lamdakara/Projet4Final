@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Confirmation de ma commande - Lili Giroud{% endblock %}
+
+{% block content %}
+<h1 class="title"> Confirmation de commande </h1>
+<p>Bonjour <strong>{{ order.user.firstname }} {{ order.user.lastname }}</strong>,<br/><br/>
+        Nous vous remercions pour votre réservation n°<strong>{{ order.reference }}</strong>.<br/>
+        Une confirmation vient de vous être envoyée par email à l'adresse <strong>{{ order.user.email }}</strong>.
+        <hr>
+        Votre réservation pour votre soin s'effectuera à l'adresse suivante : <br/>
+        {{ order.delivery|raw }}
+        <hr>
+    Pour suivre votre réservation, rendez-vous dans votre <a href="{{ path('account') }}">compte</a>.
+</p>
+
+{% endblock %}

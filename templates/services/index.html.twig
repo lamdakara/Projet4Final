@@ -1,0 +1,193 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Prestations et tarifs {% endblock %}
+
+{% block stylesheets %}<link rel="stylesheet" href="{{asset('assets/css/services.css')}}">{% endblock %}
+
+{% block body %}
+    <!-- MASSAGES -->
+    <section id="massage">
+
+        <!-- TARIFS MASSAGES -->
+        <div>
+            <h2 class="title">Les massages</h2>
+            <!-- Soin 1 -->
+            <h3 class="titleThree">Un soin Corps de 50min - 60€</h3>
+            <p class="paragraphType">Est dignissimos aspernatur aut velit perspiciatis sit velit ratione ut explicabo vero
+                ab atque velit quo
+                ipsam repudiandae.</p>
+            <!-- Soin 2 -->
+            <h3 class="titleThree">Un soin Duo de 50min - 55€/personne</h3>
+            <p class="paragraphType">Est dignissimos aspernatur aut velit perspiciatis sit velit ratione ut explicabo vero
+                ab atque velit quo
+                ipsam repudiandae.</p>
+            <!-- Soin 3 -->
+            <h3 class="titleThree">Un soin Visage de 50min - 60€</h3>
+            <p class="paragraphType">Est dignissimos aspernatur aut velit perspiciatis sit velit ratione ut explicabo vero
+                ab atque velit quo
+                ipsam repudiandae.</p>
+            <!-- Soin 4 -->
+            <h3 class="titleThree">Un soin Full Body de 60min - 100€</h3>
+            <p class="paragraphType">Est dignissimos aspernatur aut velit perspiciatis sit velit ratione ut explicabo vero
+                ab atque velit quo
+                ipsam repudiandae.</p>
+        </div>
+
+        <!-- PHOTO -->
+        <img src="{{asset('assets/img/services/servicesMassages.webp')}}"
+            alt="femme réalisant un massage relaxant sur la jambe en madérothérapie" class="imageServices">
+
+    </section>
+
+    <!-- ILLUSTRATION -->
+    <section id="illustrationPrice">
+        <img src="{{asset('assets/img/illustration/separatorService.svg')}}" alt="illustration ligne représentant un point d'interrogation"
+        id="separatorServices">
+    </section>
+
+
+    <!-- OFFRES -->
+    <section id="offer">
+
+        <!-- PHOTO -->
+        <img src="{{asset('assets/img/services/offer.webp')}}" alt="outils en bois nommé tuuli pour les massages" class="imageServices">
+
+        <!-- TARIFS MASSAGES -->
+        <div>
+            <h2 class="title">Les offres</h2>
+            <!-- Offre 1 -->
+            <h3 class="titleThree">Énergétiq’Madéro : Forfait 5 séances 250€ </h3>
+            <p class="paragraphType">Est dignissimos aspernatur aut velit perspiciatis sit velit ratione ut explicabo vero
+                ab atque velit quo
+                ipsam repudiandae.</p>
+            <!-- Offre 2 -->
+            <h3 class="titleThree">Récup’Madéro : Forfait 5 séances 250€</h3>
+            <p class="paragraphType">Est dignissimos aspernatur aut velit perspiciatis sit velit ratione ut explicabo vero
+                ab atque velit quo
+                ipsam repudiandae.</p>
+            <!-- Offre 3 -->
+            <h3 class="titleThree">Face’Madéro : Forfait 5 séances 250€</h3>
+            <p class="paragraphType">Est dignissimos aspernatur aut velit perspiciatis sit velit ratione ut explicabo vero
+                ab atque velit quo
+                ipsam repudiandae.</p>
+            <!-- Offre 4 -->
+            <h3 class="titleThree">Sophrologie 1 séance 60€</h3>
+            <p class="paragraphType">Est dignissimos aspernatur aut velit perspiciatis sit velit ratione ut explicabo vero
+                ab atque velit quo
+                ipsam repudiandae.</p>
+        </div>
+
+    </section>
+
+    <!-- CALL TO ACTION PRISE RDV -->
+    <section id="meeting">
+
+        <!-- CADRE BLANC EXPLICATIF -->
+        <div id="frameWhite">
+            <p class="titleThree">Est dignissimos aspernatur aut velit perspiciatis sit velit ratione ut explicabo vero ab
+                atque velit quo
+                ipsam repudiandae. Et consequuntur quia id similique accusantium et natus eveniet sed adipisci quam.</p>
+        </div>
+
+        <div id="buttonMeet">
+            <a href="{{path('meeting')}}" class="buttonBlue">Prendre rendez-vous</a>
+        </div>
+
+    </section>
+
+    <!-- AVIS CLIENT -->
+    <section class="testim" id="testim">
+
+        <!-- CONTAINER GLOBALE AVIS -->
+        <div class="wrap">
+
+            <!-- Fléche gauche -->
+            <img src="{{asset('assets/img/arrowLeft.svg')}}" alt="" id="left-arrow" class="arrow left">
+
+            <!-- Container avis  -->
+            <div class="cont" id="testim-content">
+
+                <!-- Avis 1 -->
+                <div class="active">
+                    <q class="paragraphType">J'ai réalisé de nombreux soins, et je peux vous dire que c'est la technique la
+                        plus efficace que je connaisse pour remodeler et lisser le visage. Ce qui est top, c'est que ça
+                        se voit dès le premier soin.</q>
+                    <img src="{{asset('assets/img/iconStar.svg')}}" alt="">
+                    <img src="{{asset('assets/img/iconStar.svg')}}" alt="">
+                    <img src="{{asset('assets/img/iconStar.svg')}}" alt="">
+                    <img src="{{asset('assets/img/iconStar.svg')}}" alt="">
+                    <img src="{{asset('assets/img/iconStar.svg')}}" alt="">
+                    <p>Sarah</p>
+                </div>
+
+                <!-- Avis 2 -->
+                <div>
+                    <q class="paragraphType">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora sequi est
+                        accusantium, rerum natus fuga totam minima a itaque, odit eius dolorem? Repudiandae, aspernatur
+                        quia.</q>
+                    <img src="{{asset('assets/img/iconStar.svg')}}" alt="">
+                    <img src="{{asset('assets/img/iconStar.svg')}}" alt="">
+                    <img src="{{asset('assets/img/iconStar.svg')}}" alt="">
+                    <img src="{{asset('assets/img/iconStar.svg')}}" alt="">
+                    <img src="{{asset('assets/img/iconStar.svg')}}" alt="">
+                    <p>Romain</p>
+                </div>
+
+                <!-- Avis 3 -->
+                <div>
+                    <q class="paragraphType">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dignissimos aliquid
+                        praesentium
+                        repudiandae ducimus dicta, in alias modi harum dolorum adipisci soluta eum rem consectetur
+                        hic.</q>
+                    <img src="{{asset('assets/img/iconStar.svg')}}" alt="">
+                    <img src="{{asset('assets/img/iconStar.svg')}}" alt="">
+                    <img src="{{asset('assets/img/iconStar.svg')}}" alt="">
+                    <img src="{{asset('assets/img/iconStar.svg')}}" alt="">
+                    <p>Pandohra</p>
+                </div>
+
+                <!-- Avis 4 -->
+                <div>
+                    <q class="paragraphType">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius assumenda quasi
+                        ipsum ad quas
+                        obcaecati nulla ab harum ea, hic amet provident deserunt voluptate non.</q>
+                    <img src="{{asset('assets/img/iconStar.svg')}}" alt="">
+                    <img src="{{asset('assets/img/iconStar.svg')}}" alt="">
+                    <img src="{{asset('assets/img/iconStar.svg')}}" alt="">
+                    <img src="{{asset('assets/img/iconStar.svg')}}" alt="">
+                    <img src="{{asset('assets/img/iconStar.svg')}}" alt="">
+                    <p>Lilou</p>
+                </div>
+
+                <!-- Avis 5 -->
+                <div>
+                    <q class="paragraphType">Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa optio
+                        repellendus quos non magnam
+                        fuga voluptatibus laudantium atque perspiciatis ipsam, quasi autem ab ut delectus.</q>
+                    <img src="{{asset('assets/img/iconStar.svg')}}" alt="">
+                    <img src="{{asset('assets/img/iconStar.svg')}}" alt="">
+                    <img src="{{asset('assets/img/iconStar.svg')}}" alt="">
+                    <img src="{{asset('assets/img/iconStar.svg')}}" alt="">
+                    <p>Adrien</p>
+                </div>
+
+            </div>
+
+            <!-- Fléche droite -->
+            <img src="{{asset('assets/img/arrowRight.svg')}}" alt="" id="right-arrow" class="arrow right">
+
+        </div>
+
+        <!-- DOTS SLIDE -->
+        <ul class="dots" id="testim-dots">
+            <li class="dot active"></li>
+            <li class="dot"></li>
+            <li class="dot"></li>
+            <li class="dot"></li>
+            <li class="dot"></li>
+        </ul>
+
+    </section>
+
+    <script src="{{asset('assets/js/testimonials.js')}}"></script>
+    {% endblock %}

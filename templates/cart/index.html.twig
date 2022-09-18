@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	Mon panier - Lili Giroud
+{% endblock %}
+
+{% block body %}
+	<h1 class="title">Mon panier</h1>
+	{{dump(carts)}}
+
+	{% for cart in carts %}
+		{{cart.service.titre}}
+		{{cart.service.prix}}
+		{{cart|length}}
+
+		<a href="{{path('order')}}">Valider mon panier</a>
+
+	{% endfor %}
+
+	{# {% if cart|length > 0 %}
+			{% set total = null %} 
+			{% for booking in cart %}
+			{{dump(cart)}}
+	
+				Nom du soin :
+				{{booking.product.service.titre}} 
+				<a href="{{ path('decrease_to_cart', { 'id' : booking.product.id }) }}"><img src="{{ asset('assets/img/lessIcon.svg') }}" alt=""></a> 
+				Quantité : x
+				{{booking.quantity}}
+				<a href="{{ path('add_to_cart', { 'id' : booking.product.id }) }}"><img src="{{ asset('assets/img/moreIcon.svg') }}" alt=""></a> 
+				Prix :
+				{{ (booking.product.service.prix)|number_format(2, ',', '.') }}
+				€
+				Total :
+				{{ (booking.product.service.prix * booking.quantity )|number_format(2, ',', '.') }}
+				€
+				{% set total = total + (booking.product.service.prix * booking.quantity)%}
+				<a href="{{ path('delete_to_cart', { 'id' : booking.product.id }) }}"><img src="{{ asset('assets/img/trashIcon.svg') }}" alt=""></a>  
+	
+			{% endfor %}
+			Nombre de réservation :
+			{{cart|length}}
+			Total de mon panier :
+			{{ (total / 100)|number_format(2, ',', '.') }}€
+			<a href="">Valider mon panier</a>
+		{% else %}
+			Votre panier est vide.
+		{% endif %}     #}
+
+{% endblock %}

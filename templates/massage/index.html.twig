@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Services{% endblock %}
+
+{% block stylesheets %}
+
+<!-- begin rdv head -->
+		 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
+  integrity=
+"sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I"  crossorigin="anonymous">
+ <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+  integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+  crossorigin="anonymous"> </script>
+ <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"
+  integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/"
+  crossorigin="anonymous">
+ </script>
+<!-- end rdv head -->
+
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h1>Services</h1>
+        <a href="{{ path('app_massage_new') }}" class="btn btn-success">Nouveau Service</a>
+        <table class="table table-">
+            <thead>
+                <tr>
+                    <th>Titre</th>
+                    <th>Durée</th>
+                    <th>Prix</th>
+                    <th>actions</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for massage in massages %}
+                <tr>
+                    <td>{{ massage.titre }}</td>
+                    <td>{{ massage.duree }} min</td>
+                    <td>{{ massage.prix }} €</td>
+                    <td>
+                        <a href="{{ path('app_massage_show', {'id': massage.id}) }}">Afficher</a>
+                        <a href="{{ path('app_massage_edit', {'id': massage.id}) }}">Modifier</a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="5">Pas de services encore !</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

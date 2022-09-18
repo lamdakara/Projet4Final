@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	Crée un compte - Lili Giroud
+{% endblock %}
+
+{% block stylesheets %}<link rel="stylesheet" href="{{asset('assets/css/account.css')}}">
+{% endblock %}
+
+{% block body %}
+	<main id="mainRegister">
+
+		<h1 class="title">Crée un compte</h1>
+
+		<!-- Container formulaire -->
+		<div id="containerRegister">
+
+			<!-- Nom -->
+			<div class="inputForm">
+				{{ form_row(form.lastname) }}
+			</div>
+
+			<!-- Prénom -->
+			<div class="inputForm">
+				{{ form_row(form.firstname) }}
+			</div>
+
+			<!-- Email -->
+			<div class="inputForm">
+				{{ form_row(form.email) }}
+			</div>
+
+			<!-- Mot de passe -->
+			<div class="inputForm">
+				{{ form_row(form.password) }}
+			</div>
+
+			<!-- Bouton envoyer -->
+			<div class="buttonPassword">
+				{{ form_row(form.submit) }}
+			</div>
+
+		</div>
+	</main>
+
+	<!-- IMAGE ILLUSTRATION -->
+	<img src="{{asset('assets/img/illustration/separatorDecouv.svg')}}" alt"" id="separatorForm">
+
+	{{form(form)}}
+
+	</div>
+</main>{% endblock %}

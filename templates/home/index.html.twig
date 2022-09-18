@@ -1,0 +1,65 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Accueil - Lili Giroud {% endblock %}
+
+{% block stylesheets %}<link rel="stylesheet" href="{{asset('assets/css/home.css')}}">{% endblock %}
+
+{% block body %}
+    <!-- HEADER IMAGE -->
+    <header id="headerHome">
+
+        <!-- Box titre avec description -->
+        <div id="containerHeader">
+            <h1>La madérothérapie</h1>
+            <p>Lorem ipsum dolor sit amet. Est dignissimos aspernatur aut velit perspiciatis sit velit ratione ut
+                explicabo vero ab atque velit quo ipsam repudiandae. Et consequuntur quia id similique accusantium et
+                natus eveniet sed adipisci quam.</p>
+        </div>
+
+    </header>
+
+    <!-- BLOC IMAGE TEXTE 1 -->
+    <section class="containerBox" id="boxFirst">
+
+        <!-- Encadrer avec description -->
+        <div class="boxText">
+            <p>Lorem ipsum dolor sit amet. Est dignissimos aspernatur aut velit perspiciatis sit velit ratione ut
+                explicabo vero ab atque velit quo ipsam repudiandae. Et consequuntur quia id similique accusantium et
+                natus eveniet sed adipisci quam. Non aliquam odio quo accusamus architecto quo repellendus explicabo cum
+                cupiditate accusamus ut reprehenderit totam quo nisi molestiae. Ipsum dolor sit amet !</p>
+            <a href="{{path('discovery')}}" class="buttonBlue">Découvrir</a>
+        </div>
+
+        <!-- Photo -->
+        <div class="positionImg">
+            <img src="{{asset('assets/img/home/boxFirst.jpg')}}" alt="photo outil bois pour massage">
+        </div>
+
+    </section>
+
+    <!-- SEPARATEUR IMAGE -->
+    <img src="{{asset('assets/img/illustration/separatorHome.svg')}}" alt="illustration de main tendue l'une vers l'autre"
+        id="handSeparator">
+    <img src="{{asset('assets/img/illustration/separatorHandMobile.svg')}}" alt="illustration de main tendue l'une vers l'autre"
+        id="handSeparatorMobile">
+
+    <!-- BLOC IMAGE TEXTE 2 -->
+    <section class="containerBox" id="boxSecond">
+
+        <!-- Photo -->
+        <div class="positionImg">
+            <img src="{{asset('assets/img/home/massageMaderotherapie.jpg')}}" alt="photo outil bois pour massage">
+        </div>
+
+        <!-- Encadrer avec description -->
+        <div class="boxText">
+            <p>Lorem ipsum dolor sit amet. Est dignissimos aspernatur aut velit perspiciatis sit velit ratione ut
+                explicabo vero ab atque velit quo ipsam repudiandae. Et consequuntur quia id similique accusantium et
+                natus eveniet sed adipisci quam. Non aliquam odio quo accusamus architecto quo repellendus explicabo cum
+                cupiditate accusamus ut reprehenderit totam quo nisi molestiae. Ipsum dolor sit amet !</p>
+            <a href="{{path('services')}}" class="buttonBrown">Prestations et tarifs</a>
+        </div>
+
+    </section>
+
+{% endblock %}

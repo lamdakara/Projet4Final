@@ -1,0 +1,169 @@
+/* -------- PHOTO + TEXTE BIENVENUE --------*/
+/* Container globale */
+#accountHeader {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* Photo profil */
+#accountHeader img {
+    width: 100%;
+    max-width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+/* Nom prénom */
+#accountHeader p {
+    padding-top: 40px;
+}
+
+/* -------- NAVIGATION COMPTE --------*/
+/*--- Container globale ---*/
+#navAccount {
+    width: 80%;
+    padding-top: 40px;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+}
+
+/*--- Navigation ---*/
+#navAccount a {
+    text-decoration: none;
+    margin-right: 60px;
+    font-weight: 600;
+    font-size: 28px;
+    color: var(--black);
+    margin: auto;
+}
+
+/*--- Stylisatio lien active hover ---*/
+#navAccount a:hover,
+#navAccount a:active {
+    color: var(--second-color);
+}
+
+/* -------- MEDIA QUERIES --------*/
+@media screen and (max-width: 1360px) {
+
+    /*--- Container globale ---*/
+    #navAccount {
+        width: 95%;
+        padding-top: 40px;
+        display: flex;
+        justify-content: center;
+        margin: auto;
+    }
+
+}
+
+@media screen and (max-width: 920px) {
+
+    /*--- Container globale ---*/
+    #navAccount {
+        padding-top: 40px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    /*--- Navigation ---*/
+    #navAccount a {
+        margin: auto;
+    }
+
+}
+
+
+/* -------- PAGE MODIFIER MOT DE PASSE --------*/
+/*--- Container globale ---*/
+#mainPassword,
+#mainRegister {
+    padding-top: 100px;
+}
+
+/*--- Titre H1 ---*/
+#mainPassword h1 {
+    padding-bottom: 50px;
+}
+
+/*--- Formulaire ---*/
+/* Container formulaire */
+#containerPassword,
+#containerRegister {
+    margin: auto;
+    width: 100%;
+    max-width: 600px;
+    padding: 20px;
+}
+
+/* Label */
+.inputForm label {
+    font-weight: 400;
+    font-size: 24px;
+    text-align: left;
+    color: var(--text-color);
+}
+
+/* Input */
+.inputForm input {
+    width: 100%;
+    height: 58px;
+    border: 1px solid var(--text-color);
+    margin: 10px 0 40px 0;
+    outline: none;
+    background-color: white;
+    padding: 0 20px;
+    font-size: 18px;
+    line-height: 18px;
+    color: var(--text-color);
+}
+
+/* Input désactiver */
+.inputForm input:disabled {
+    color: rgba(87, 87, 86, 0.436);
+    border: 1px solid rgba(87, 87, 86, 0.436);
+}
+
+/*--- Bouton ---*/
+/* Container bouton */
+.buttonPassword {
+    padding-top: 20px;
+}
+
+/* Bouton */
+#change_password_submit,
+#register_submit {
+    width: 400px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 28px;
+    text-transform: uppercase;
+    text-align: center;
+    color: var(--second-color);
+    display: block;
+    padding: 30px 0;
+    border: 5px solid var(--second-color);
+    border-radius: 25px;
+    margin: auto;
+    background-color: transparent;
+}
+
+/* Stylisation bouton hover active */
+#change_password_submit:hover,
+#change_password_submit:active,
+#register_submit:hover,
+#register_submit:active {
+    color: var(--white);
+    background-color: var(--second-color);
+    border: 5px solid var(--second-color);
+}
+
+/*--- Illustration ---*/
+#separatorForm {
+    width: 90%;
+}
