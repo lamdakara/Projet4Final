@@ -45,7 +45,7 @@ class StripeController extends AbstractController
         }
 
         //Api Stripes
-        Stripe::setApiKey('sk_test_51LiI1uJ85NHrhmvQeFXnIELYoa59KtVUXvguUUFgZEloyP8v2Hda0OxAReatEcTYlmhBFSMrJ3PUmViGxgDKZygS00kBKAuB7h');
+        Stripe::setApiKey($this->getParameter('app.secretKey'));
 
         //Création des routes après paiements
         $checkout_session = Session::create([
@@ -61,7 +61,8 @@ class StripeController extends AbstractController
             'cancel_url' => $YOUR_DOMAIN . '/commande/erreur/{CHECKOUT_SESSION_ID}',
         ]);
 
-        $order->setStripeSessionId($checkout_session->url);
+        $order->setStripeSessionId($checkout_session->id);
+        $entityManager->flush();
 
         return $this->redirect($checkout_session->url);
     }

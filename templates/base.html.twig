@@ -17,6 +17,7 @@
 
 
 		<!-- CSS -->
+		<link rel="stylesheet" href="{{asset('assets/css/bootstrap/css/bootstrap.min.css')}}">
 		<link rel="stylesheet" href="{{asset('assets/css/base.css')}}">
 		<link rel="stylesheet" href="{{asset('assets/css/account.css')}}">
 		{% block stylesheets %}{% endblock %}
@@ -24,7 +25,6 @@
 		</head>
 
 		<body>
-
 			{% block menu %}
 				<!-- MENU -->
 				<nav
@@ -90,6 +90,12 @@
 					<a href="{{path('app_logout')}}">Déconnexion</a>
 				</nav>
 			{% endif %}
+
+			{# inclure les templates pour afficher les messages flashbag #}
+			<div class="container">
+				{% include "commun/_notice.html.twig" %}
+			</div>
+
 			{% block body %}{% endblock %}
 
 			{% block footer %}
@@ -117,6 +123,7 @@
 			{% endblock %}
 
 			<script src="{{asset('assets/js/menuBurger.js')}}"></script>
+			<link rel="stylesheet" href="{{asset('assets/js/bootstrap/js/bootstrap.min.js')}}">
 			{% block javascripts %}{% endblock %}
 		</body>
 

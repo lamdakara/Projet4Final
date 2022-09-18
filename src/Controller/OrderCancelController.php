@@ -25,6 +25,8 @@ class OrderCancelController extends AbstractController
         //Récupérer les élements de Order
         $order = $this->entityManager->getRepository(Order::class)->findOneByStripeSessionId($stripeSessionId);
 
+        $this->addFlash('danger', 'Votre paiement à été réfusé !');
+
         //Si la commande n'est pas du bon utilisateur retour à la page accueil
         if (!$order || $order->getUser() != $this->getUser()) {
             return $this->redirectToRoute('home');

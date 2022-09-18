@@ -5,11 +5,16 @@ namespace App\Controller;
 use App\Classe\Cart;
 use App\Classe\Mail;
 use App\Entity\Order;
+use App\Repository\BookingRepository;
+use App\Security\LoginFormAuthenticator;
+use App\Service\MailjetService;
 use Doctrine\ORM\EntityManagerInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Http\Authentication\UserAuthenticatorInterface;
 
 class OrderValidateController extends AbstractController
 {
@@ -23,28 +28,46 @@ class OrderValidateController extends AbstractController
     }
 
     #[Route('/commande/merci/{stripeSessionId}', name: 'order_validate'), IsGranted('ROLE_USER')]
-    public function index(Cart $cart, $stripeSessionId) : Response
+    public function index(Request $request, $stripeSessionId, MailjetService $mailjetService, BookingRepository $bookingRepository, UserAuthenticatorInterface $userAuthenticator, LoginFormAuthenticator $authenticator) : Response
     {
-        $order = $this->entityManager->getRepository(Order::class)->findOneByStripeSessionId($stripeSessionId);
+        $order = $this->entityManager->getRepository(Order::class)->findOneBy([
+            'stripeSessionId' => $stripeSessionId,
+            'isPaid' => false
+        ]);
 
-        //Voir si c'est bien l'utilisateur connecté
-        if (!$order || $order->getUser() != $this->getUser()) {
+        if (!$order) {
+            $this->addFlash('danger', 'Commande non trouvé');
+
             return $this->redirectToRoute('home');
         }
 
-        if ($order->getIsPaid() == 0) {
-            // Vider la session "cart"
-            $cart->remove();
+        $user = $order->getUser();
 
-            // Modifier le statut isPaid de notre commande en mettant 1
-            $order->setIsPaid(1);
-            $this->entityManager->flush();
+        // une fois que l'utilisateur et rediriger depuis stripe il perd la session 
+        // du coup on est obligé de forcé ça connexion
+        $userAuthenticator->authenticateUser(
+            $user,
+            $authenticator,
+            $request
+        );
 
-            // Envoyer un email à notre client pour lui confirmer sa commande
-            $mail = new Mail();
-            $content = "Bonjour " . $order->getUser()->getFirstname() . "<br/>Merci pour votre réservation.<br><br/>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam expedita fugiat ipsa magnam mollitia optio voluptas! Alias, aliquid dicta ducimus exercitationem facilis, incidunt magni, minus natus nihil odio quos sunt?";
-            $mail->send($order->getUser()->getEmail(), $order->getUser()->getFirstname(), 'Votre réservation sur Lili Giroud est bien validée.', $content);
+        // On récupère tous les réservations pas encore payer par l'utilisateur connecté
+        $bookings = $bookingRepository->findBy(['payer' => false, 'user' => $this->getUser()]);
+
+        // On set le payement à true
+        foreach($bookings as $booking) {
+            $booking->setPayer(true);
         }
+
+        // Modifier le statut isPaid de notre commande en mettant 1
+        $order->setIsPaid(true);
+        $this->entityManager->flush();
+
+        // Envoyer un email à notre client pour lui confirmer sa commande
+        $content = "Bonjour " . $order->getUser()->getFirstname() . "<br/>Merci pour votre réservation.<br><br/>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam expedita fugiat ipsa magnam mollitia optio voluptas! Alias, aliquid dicta ducimus exercitationem facilis, incidunt magni, minus natus nihil odio quos sunt?";
+        $mailjetService->sendEmail($order->getUser()->getEmail(), $order->getUser()->getFirstname(), 'Votre réservation sur Lili Giroud est bien validée.', $content);
+
+        $this->addFlash('success', 'Votre paiement à bien été réceptionné, Merci !');
 
         //Gérer la vue
         return $this->render('order_validate/index.html.twig', [

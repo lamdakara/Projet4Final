@@ -12,6 +12,7 @@
 
 		<h1 class="title">Crée un compte</h1>
 
+		{{ form_start(form) }}
 		<!-- Container formulaire -->
 		<div id="containerRegister">
 
@@ -42,11 +43,9 @@
 
 		</div>
 	</main>
-
+	{{ form_end(form) }}
 	<!-- IMAGE ILLUSTRATION -->
 	<img src="{{asset('assets/img/illustration/separatorDecouv.svg')}}" alt"" id="separatorForm">
-
-	{{form(form)}}
 
 	</div>
 </main>{% endblock %}

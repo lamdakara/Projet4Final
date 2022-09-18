@@ -32,7 +32,7 @@ class MailjetService
       [
         'From' => [
           'Email' => "secoubafofana@hotmail.fr",
-          'Name' => "sekouba"
+          'Name' => "Lili Giroud - Massage madérothérapeutique"
         ],
         'To' => [
           [
@@ -41,7 +41,7 @@ class MailjetService
           ]
         ],
         'Subject' => $sujet,
-        'TextPart' => $contenu,
+        'HTMLPart' => $contenu,
       ]
     ]
   ];

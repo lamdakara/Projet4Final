@@ -5,12 +5,15 @@ namespace App\Controller;
 use App\Classe\Mail;
 use App\Entity\User;
 use App\Form\RegisterType;
+use App\Security\LoginFormAuthenticator;
+use App\Service\MailjetService;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Http\Authentication\UserAuthenticatorInterface;
 
 class RegisterController extends AbstractController
 {
@@ -23,10 +26,8 @@ class RegisterController extends AbstractController
     }
 
     #[Route('/inscription', name: 'register')]
-    public function index(Request $request, UserPasswordHasherInterface $passwordHasher): Response
+    public function index(Request $request, UserPasswordHasherInterface $passwordHasher, MailjetService $mailjetService, UserAuthenticatorInterface $userAuthenticator, LoginFormAuthenticator $authenticator): Response
     {
-        $notification = null;
-
         // Sauvegarder les informations dans la BDD
         $user = new User();
         $form = $this->createForm(RegisterType::class, $user);
@@ -51,13 +52,20 @@ class RegisterController extends AbstractController
                 $this->entityManager->flush();
 
                 //Envoi d'un email
-                $mail = new Mail();
                 $content = "Bonjour " . $user->getFirstname() . "<br/>Bienvenue sur le site de Lili Giroud, massage madérothérapeutique.<br><br/>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam expedita fugiat ipsa magnam mollitia optio voluptas! Alias, aliquid dicta ducimus exercitationem facilis, incidunt magni, minus natus nihil odio quos sunt?";
-                $mail->send($user->getEmail(), $user->getFirstname(), 'Bienvenue sur Lili Giroud', $content);
+                $mailjetService->sendEmail($user->getEmail(), $user->getFirstname(), 'Bienvenue sur Lili Giroud', $content);
 
-                $notification = "Votre inscription s'est correctement déroulée. Vous pouvez dès à présent vous connecter à votre compte";
+                $this->addFlash('success', 'Votre inscription s\'est correctement déroulée. Vous pouvez dès à présent vous connecter à votre compte');
+
+                // une fois le compte est créer on authentifie automatiquement l'utilisateur
+                return $userAuthenticator->authenticateUser(
+                    $user,
+                    $authenticator,
+                    $request
+                );
+
             } else {
-                $notification = "L'email que vous avez renseignée existe déjà";
+                $this->addFlash('danger', "L'email que vous avez renseignée existe déjà");
             }
         }
 

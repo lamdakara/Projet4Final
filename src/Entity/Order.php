@@ -31,7 +31,7 @@ class Order
     private Collection $orderDetails;
 
     #[ORM\Column]
-    private ?bool $isPaid = null;
+    private ?bool $isPaid = false;
 
     #[ORM\Column(length: 255)]
     private ?string $reference = null;
@@ -132,7 +132,7 @@ class Order
         return $this->isPaid;
     }
 
-    public function setIsPaid(bool $isPaid): self
+    public function setIsPaid(?bool $isPaid): self
     {
         $this->isPaid = $isPaid;
 

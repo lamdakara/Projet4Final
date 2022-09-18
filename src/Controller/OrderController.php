@@ -48,7 +48,7 @@ class OrderController extends AbstractController
     }
 
     //Crée notre commande dans la base de donnée
-    #[Route('/commande/recapitulatif', name: 'order_summary', methods: ('POST'))]
+    #[Route('/commande/recapitulatif', name: 'order_summary', methods: ['POST', 'GET'])]
     public function add(Cart $cart, Request $request): Response
     {
         $form = $this->createForm(OrderType::class, null, [

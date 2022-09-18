@@ -12,9 +12,10 @@
 		<!-- Titre H1 -->
 		<h1 class="title">Gérer mes adresses</h1>
 
+		
 		<!-- Container input label -->
 		<div id="containerAddressForm">
-
+		{{ form_start(form) }}
 			<!-- Nom de l'adresse -->
 			<div class="inputAddress" id="nameForm">
 				{{ form_row(form.name) }}
@@ -61,6 +62,8 @@
 		<div id="submitButton">
 			{{ form_row(form.submit) }}
 		</div>
+
+		{{ form_end(form) }}
 
 		<!-- IMAGE ILLUSTRATION -->
 		<img src="{{asset('assets/img/illustration/separatorDecouv.svg')}}" alt"" id="separatorForm">

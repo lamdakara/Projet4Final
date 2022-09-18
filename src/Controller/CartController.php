@@ -26,7 +26,7 @@ class CartController extends AbstractController
     #[Route('/panier', name: 'cart'), IsGranted('ROLE_USER')]
     public function index(EntityManagerInterface $entityManager)
     {
-        $carts = $this->entityManager->getRepository(Booking::class)->findBy(["user" => $this->getUser()], []);
+        $carts = $this->entityManager->getRepository(Booking::class)->findBy(["user" => $this->getUser(), "payer" => false]);
 
         return $this->render('cart/index.html.twig', [
             'carts' => $carts

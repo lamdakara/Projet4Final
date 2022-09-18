@@ -5,6 +5,9 @@ namespace App\Classe;
 use Mailjet\Client;
 use Mailjet\Resources;
 
+/**
+ * @deprecated Privilégié d'utiliser le service App\Service\MailjetService
+ */
 class Mail
 {
     private $api_key = 'b4538591c17c6a5e8c57b9b152eb7e85';
