@@ -40,7 +40,7 @@ class CartController extends AbstractController
         $cart->add($id);
         return $this->redirectToRoute('cart');
     }
-    
+
     // Supprimer un élement du panier
     #[Route('/cart/delete/{id}', name: 'delete_to_cart'), IsGranted('ROLE_USER')]
     public function delete(Cart $cart, $id)

@@ -33,6 +33,7 @@ class Booking
     #[ORM\ManyToOne(inversedBy: 'bookings')]
     #[ORM\JoinColumn(nullable: true)]
     private ?User $user = null;
+    
 
     public function getId(): ?int
     {

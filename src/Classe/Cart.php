@@ -48,5 +48,4 @@ class Cart
 
         return $this->session->set('cart', $cart);
     }
-
 }
